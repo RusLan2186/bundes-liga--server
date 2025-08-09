@@ -1,0 +1,11 @@
+.banner__link {
+  padding-bottom: 21%;
+}
+.banner__img {
+}
+
+@media (max-width: 767.98px) {
+  .banner__link {
+    padding-bottom: 40%;
+  }
+}

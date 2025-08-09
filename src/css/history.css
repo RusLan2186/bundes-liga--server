@@ -1,0 +1,24 @@
+.history__rows {
+  display: grid;
+  grid-template-columns: 49% 1fr;
+  column-gap: 1.875rem;
+  row-gap: 1.25rem;
+}
+
+.history__img_block {
+  height: 100%;
+
+}
+
+@media (max-width: 991.98px) {
+
+
+  .history__rows {
+    grid-template-columns: 1fr;
+  }
+
+  .history__img_block {
+  padding-bottom: 60%;
+  
+  }
+}

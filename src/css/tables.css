@@ -1,0 +1,73 @@
+.grid-pts-tbl {
+  display: grid;
+  grid-template-columns: 8% 25% repeat(8, 1fr);
+}
+
+.grid-pts-sm {
+  display: grid;
+  grid-template-columns: 10% 35% repeat(5, 1fr);
+}
+
+
+.table__head {
+  background-color: rgb(207, 21, 45);
+  color: rgb(255, 255, 255);
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  padding: 0.625rem 0; /* 10px 0 */
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.table__body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  padding: 0.625rem 0; /* 10px 0 */
+  text-align: center;
+  text-transform: uppercase;
+  border-style: solid;
+  border-width: thin;
+  border-top-width: 0;
+  border-color: rgb(0, 0, 0);
+  align-items: center;
+}
+
+
+.table__team_block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem; /* 8px */
+  row-gap: 0.1875rem; /* 3px */
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.grid-pts-sm.table__body,
+.grid-pts-sm .table__team_block {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+}
+
+.grid-pts-sm .table__team_block img {
+  height: 1.5625rem; 
+}
+
+
+@media (min-width: 799.98px) {
+  .pts-table--sm {
+    display: none;
+  }
+}
+
+@media (max-width: 799.98px) {
+  .pts-table--big {
+    display: none;
+  }
+}

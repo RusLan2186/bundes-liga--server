@@ -1,0 +1,39 @@
+[
+  {
+    "file": "index.html",
+    "name": "Index",
+    "pin": "",
+    "url": "",
+    "isHome": true
+  },
+  {
+    "file": "club.html",
+    "name": "Club",
+    "pin": "",
+    "url": "club/{clubId}"
+  },
+  {
+    "file": "news.html",
+    "name": "News",
+    "pin": "",
+    "url": "news"
+  },
+  {
+    "file": "calendar.html",
+    "name": "Calendar",
+    "pin": "",
+    "url": "calendar"
+  },
+  {
+    "file": "post.html",
+    "name": "Post",
+    "pin": "",
+    "url": "post/{postId}"
+  },
+  {
+    "file": "layouts/base.html",
+    "name": "Base",
+    "pin": "",
+    "url": "base"
+  }
+]

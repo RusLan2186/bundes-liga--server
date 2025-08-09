@@ -1,0 +1,13 @@
+[
+  {
+    "id": "1754291349778",
+    "name": "posts",
+    "type": "mysql",
+    "host": "83.222.21.233",
+    "port": 3306,
+    "username": "testdb",
+    "password": "BWe&!KZ6pwpW",
+    "database": "testdb",
+    "path": ""
+  }
+]

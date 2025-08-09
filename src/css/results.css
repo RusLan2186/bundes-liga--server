@@ -1,0 +1,108 @@
+.results__items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem; /* 20px */
+}
+
+.res__item {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 2px rgb(136, 140, 144);
+  padding-bottom: 1.25rem; /* 20px */
+  padding-top: 1.25rem; /* 20px */
+  border-radius: 0.5rem; /* 8px */
+  padding-left: 1.25rem; /* 20px */
+  padding-right: 1.25rem; /* 20px */
+
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  align-items: center;
+}
+
+.res__team_block {
+  align-items: center;
+  display: flex;
+  column-gap: 0.625rem; /* 10px */
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  text-transform: uppercase;
+  justify-content: space-between;
+}
+
+.res__team_name {
+  font-size: 1.125rem; /* 18px */
+}
+
+.res__score_block {
+  display: flex;
+  column-gap: 0.625rem; /* 10px */
+  justify-content: center;
+}
+
+.res__score {
+  background: #e9ebed;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  padding-left: 0.625rem; /* 10px */
+  padding-right: 0.625rem; /* 10px */
+  padding-bottom: 0.125rem; /* 2px */
+  padding-top: 0.125rem; /* 2px */
+}
+
+.res-link_block {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1279.98px) {
+  .res__item {
+    row-gap: 1.25rem; /* 20px */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .res__item > :nth-last-child(1):nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .results__items {
+    grid-template-columns: 1fr;
+  }
+
+  .res__item {
+    grid-template-columns: repeat(4, 25%);
+    row-gap: 1.5625rem; /* 25px */
+    justify-content: space-between;
+  }
+
+  .res__item > :nth-last-child(1):nth-child(3n + 1) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 649.98px) {
+  .res__item {
+    grid-template-columns: repeat(3, 33%);
+    row-gap: 1.5625rem; /* 25px */
+  }
+
+  .res__item > :nth-last-child(1):nth-child(3n + 1) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 499.98px) {
+  .res__team_block {
+    flex-direction: column-reverse;
+    column-gap: 0.625rem; /* 10px */
+    font-size: 1.25rem; /* 20px */
+    font-weight: 700;
+    row-gap: 0.3125rem; /* 5px */
+  }
+  .res__score {
+    font-size: 1.5rem; /* 24px */
+  }
+  .res__team_name {
+    font-size: 1.0625rem; 
+  }
+}
