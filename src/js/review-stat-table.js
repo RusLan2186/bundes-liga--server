@@ -34,55 +34,61 @@
 
 
 window.addEventListener('load', () => {
-	createGameState()
+  createGameState()
 })
 
 function createGameState() {
-	const gameTables = document.querySelectorAll('[data-stat]')
-	if (!gameTables.length) return
-	gameTables.forEach(table => {
-		const classNameForLine = table.getAttribute('data-stat') ?? 'line'
-		const columnGap = table.getAttribute('data-stat-gap')
-			? parseFloat(table.getAttribute('data-stat-gap'))
-			: 5
-		const itemsTable = table.querySelectorAll('[data-stat-item]')
-		itemsTable.forEach(itemTable =>
-			fillStatCard(itemTable, classNameForLine, columnGap)
-		)
-	})
+  const gameTables = document.querySelectorAll('[data-stat]')
+  if (!gameTables.length) return
+
+  gameTables.forEach(table => {
+    const columnGap = parseInt(table.getAttribute('data-stat-gap'), 10) || 5
+    const items = table.querySelectorAll('[data-stat-item]')
+    items.forEach(item => {
+      fillStatCard(item, 'item-game-stat__line', columnGap)
+    })
+  })
 }
 
 function fillStatCard(card, classNameForLine, columnGap) {
-	const values = [...card.querySelectorAll('[data-stat-value]')].map(elValue =>
-		parseFloat(elValue.textContent)
-	)
-	const valueFirst = isNaN(values[0]) ? 0 : values[0]
-	const valueSecond = isNaN(values[1]) ? 0 : values[1]
-	const lines = calcWidthLines(valueFirst, valueSecond)
-	const [lineFirst, lineSecond] = lines
+  const values = [...card.querySelectorAll('[data-stat-value]')].map(elValue =>
+    parseFloat(elValue.textContent.trim())
+  )
 
-	const row = card.querySelector('[data-stat-row]')
-	if (!row) return
+  const valueFirst = isNaN(values[0]) ? 0 : values[0]
+  const valueSecond = isNaN(values[1]) ? 0 : values[1]
+  const [lineFirst, lineSecond] = calcWidthLines(valueFirst, valueSecond)
 
-	lines.forEach(() => row.append(createLine(classNameForLine)))
-	row.style.columnGap = `${columnGap / 16}rem`
-	row.style.setProperty(
-		'grid-template-columns',
-		`${lineFirst}fr ${lineSecond}fr`
-	)
-	row.style.display = 'grid'
-	if (lineFirst === 1 || lineSecond === 1) row.style.columnGap = 0
+  const row = card.querySelector('[data-stat-row]')
+  if (!row) return
+
+  // Очищаем, чтобы при перезапуске не дублировались линии
+  row.innerHTML = ''
+
+  // Добавляем линии
+  row.append(createLine(classNameForLine))
+  row.append(createLine(classNameForLine))
+
+  // Ставим стили
+  row.style.columnGap = `${columnGap / 16}rem`
+  row.style.setProperty('grid-template-columns', `${lineFirst}fr ${lineSecond}fr`)
+  row.style.display = 'grid'
+
+  if (lineFirst === 1 || lineSecond === 1) {
+    row.style.columnGap = 0
+  }
 }
 
 function calcWidthLines(firstValue, secondValue) {
-	const totalSum = firstValue + secondValue
-	const widthFirstLine = Math.floor((firstValue / totalSum) * 100) / 100
-	const widthSecondLine = Math.floor((secondValue / totalSum) * 100) / 100
-	return [widthFirstLine, widthSecondLine]
+  const totalSum = firstValue + secondValue
+  if (totalSum === 0) return [0.5, 0.5] // чтобы не было NaN при делении на 0
+  const widthFirstLine = Math.floor((firstValue / totalSum) * 100) / 100
+  const widthSecondLine = Math.floor((secondValue / totalSum) * 100) / 100
+  return [widthFirstLine, widthSecondLine]
 }
 
 function createLine(classForLine) {
-	const line = document.createElement('div')
-	line.className = classForLine
-	return line
+  const line = document.createElement('div')
+  line.className = classForLine
+  return line
 }
