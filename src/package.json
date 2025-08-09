@@ -1,0 +1,16 @@
+{
+  "name": "bundesliga",
+  "version": "1.0.0",
+  "description": "bundesliga site",
+  "type": "module",
+  "scripts": {
+    "convert-img": "node utils/convert-images.mjs",
+    "px-to-rem": "node utils/px-to-rem.mjs"
+  },
+  "author": "Ruslan",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^11.0.3",
+    "sharp": "^0.33.5"
+  }
+}
