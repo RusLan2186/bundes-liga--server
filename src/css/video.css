@@ -68,16 +68,10 @@
 
   .video-item__img_block,
   .video-card__img_block {
-    padding-bottom: 50%;
+    padding-bottom: 60%;
   }
 
   .media__text_block {
     padding: 0.625rem; /* 10px */
-  }
-}
-
-@media (max-width: 449.98px) {
-  .video-item__img_block {
-    padding-bottom: 60%;
   }
 }
